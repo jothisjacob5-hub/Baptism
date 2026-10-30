@@ -1,0 +1,2408 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FROM YOUR INFORMATION</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Manjari:wght@400;700&family=Noto+Serif+Malayalam:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Manjari",sans-serif;
+    background:#f7f4ec;
+    color:#26382f;
+    font-size:17px;
+}
+
+:root{
+    --main:#315b48;
+    --dark:#1d3028;
+    --gold:#b39a63;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px 20px;
+    position:relative;
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        rgba(18,45,34,.68),
+        rgba(18,45,34,.75)
+    ),
+    url("baby.jpg") center/cover no-repeat;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:18px;
+    border:1px solid rgba(255,255,255,.45);
+    pointer-events:none;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    color:white;
+}
+
+.cross{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.small-title{
+    letter-spacing:3px;
+    font-size:13px;
+    text-transform:uppercase;
+}
+
+h1{
+    font-family:"Great Vibes",cursive;
+    font-size:clamp(65px,13vw,120px);
+    font-weight:400;
+    line-height:1;
+    margin:15px 0;
+}
+
+.subtitle{
+    font-family:"Noto Serif Malayalam",serif;
+    font-size:20px;
+    margin-bottom:15px;
+}
+
+.baby-name{
+    font-family:"Noto Serif Malayalam",serif;
+    font-size:clamp(32px,7vw,58px);
+    font-weight:600;
+    line-height:1.4;
+}
+
+.hero-date{
+    margin-top:15px;
+    font-size:17px;
+    letter-spacing:1px;
+}
+
+/* =========================
+   COMMON
+========================= */
+
+.section-title{
+    font-family:"Noto Serif Malayalam",serif;
+    font-size:42px;
+    font-weight:600;
+    line-height:1.5;
+    color:var(--main);
+}
+
+.divider{
+    width:70px;
+    height:2px;
+    background:var(--gold);
+    margin:20px auto 30px;
+}
+
+/* =========================
+   BOTANICAL
+========================= */
+
+.botanical{
+    position:absolute;
+    pointer-events:none;
+    z-index:1;
+    font-size:42px;
+    opacity:.22;
+    animation:botanicalFloat 6s ease-in-out infinite;
+}
+
+.botanical.left{
+    left:15px;
+    top:20%;
+}
+
+.botanical.right{
+    right:15px;
+    bottom:20%;
+    transform:scaleX(-1);
+}
+
+@keyframes botanicalFloat{
+
+    0%,100%{
+        transform:translateY(0) rotate(0deg);
+    }
+
+    50%{
+        transform:translateY(-10px) rotate(3deg);
+    }
+
+}
+
+/* =========================
+   INVITATION
+========================= */
+
+.invitation{
+    padding:70px 20px;
+    text-align:center;
+    position:relative;
+}
+
+.invite-card{
+    max-width:550px;
+    margin:auto;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 15px 45px rgba(0,0,0,.15);
+    position:relative;
+    touch-action:none;
+    user-select:none;
+    cursor:crosshair;
+}
+
+.invite-card img{
+    width:100%;
+    display:block;
+}
+
+#scratchCanvas{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:5;
+    touch-action:none;
+    user-select:none;
+    cursor:crosshair;
+}
+
+.scratch-text{
+    position:absolute;
+    z-index:6;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+    letter-spacing:2px;
+    text-shadow:0 2px 8px rgba(0,0,0,.8);
+    pointer-events:none;
+    white-space:nowrap;
+    transition:opacity:.25s ease;
+}
+
+/* =========================
+   GALLERY SCRATCH
+========================= */
+
+.scratch-photo{
+    position:relative;
+    width:100%;
+    height:260px;
+    overflow:hidden;
+    border-radius:15px;
+    touch-action:none;
+    user-select:none;
+    cursor:crosshair;
+}
+
+.scratch-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    border-radius:15px;
+    cursor:pointer;
+}
+
+.scratch-photo canvas{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:2;
+    touch-action:none;
+    cursor:crosshair;
+}
+
+.scratch-photo span{
+    position:absolute;
+    z-index:3;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    color:white;
+    font-weight:bold;
+    font-size:16px;
+    letter-spacing:1px;
+    text-shadow:0 2px 8px #000;
+    pointer-events:none;
+    white-space:nowrap;
+    transition:opacity:.25s ease;
+}
+
+/* =========================
+   SPARKLES
+========================= */
+
+.sparkle{
+    position:absolute;
+    pointer-events:none;
+    z-index:20;
+    font-size:18px;
+    line-height:1;
+    animation:sparklePop .8s ease-out forwards;
+    filter:drop-shadow(0 0 5px rgba(255,255,255,.9));
+}
+
+@keyframes sparklePop{
+
+    0%{
+        transform:translate(-50%,-50%) scale(.25) rotate(0deg);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    55%{
+        transform:translate(-50%,-55%) scale(1.15) rotate(90deg);
+        opacity:1;
+    }
+
+    100%{
+        transform:translate(-50%,-90px) scale(1.45) rotate(180deg);
+        opacity:0;
+    }
+
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    z-index:9999;
+    inset:0;
+    background:rgba(0,0,0,.93);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal img{
+    max-width:95%;
+    max-height:90vh;
+    object-fit:contain;
+}
+
+.close{
+    position:absolute;
+    top:20px;
+    right:25px;
+    color:white;
+    font-size:40px;
+    cursor:pointer;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.intro{
+    max-width:760px;
+    margin:auto;
+    text-align:center;
+    padding:0 20px 70px;
+}
+
+.intro p{
+    font-family:"Noto Serif Malayalam",serif;
+    color:#606b65;
+    line-height:2.2;
+    font-size:18px;
+}
+
+/* =========================
+   DETAILS
+========================= */
+
+.details,
+.reception{
+    background:#edf0e9;
+    padding:70px 20px;
+    text-align:center;
+}
+
+.grid{
+    max-width:950px;
+    margin:40px auto 0;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    background:white;
+    padding:32px 20px;
+    border-radius:16px;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 14px 32px rgba(0,0,0,.10);
+}
+
+.icon{
+    font-size:34px;
+    margin-bottom:12px;
+}
+
+.card h3{
+    font-family:"Noto Serif Malayalam",serif;
+    color:var(--main);
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#68736d;
+    line-height:1.8;
+}
+
+/* =========================
+   BIBLE VERSE
+========================= */
+
+.bible-verse{
+    padding:75px 20px;
+    text-align:center;
+    background:#faf9f4;
+    position:relative;
+    overflow:hidden;
+}
+
+.bible-verse-box{
+    max-width:760px;
+    margin:30px auto 0;
+    padding:40px 25px;
+    background:white;
+    border-radius:18px;
+    box-shadow:0 12px 35px rgba(0,0,0,.07);
+    position:relative;
+}
+
+.bible-cross{
+    font-size:28px;
+    color:var(--gold);
+    margin-bottom:15px;
+}
+
+.bible-verse-box p{
+    font-family:"Noto Serif Malayalam",serif;
+    font-size:20px;
+    line-height:2;
+    color:#59645e;
+}
+
+.bible-reference{
+    display:block;
+    margin-top:18px;
+    color:var(--main);
+    font-weight:bold;
+}
+
+/* =========================
+   JOURNEY
+========================= */
+
+.journey{
+    padding:75px 20px;
+    background:#edf0e9;
+    text-align:center;
+}
+
+.journey-timeline{
+    max-width:850px;
+    margin:45px auto 0;
+    position:relative;
+}
+
+.journey-timeline::before{
+    content:"";
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:50%;
+    width:2px;
+    background:var(--gold);
+    transform:translateX(-50%);
+}
+
+.journey-item{
+    width:50%;
+    padding:15px 35px;
+    position:relative;
+    text-align:left;
+}
+
+.journey-item:nth-child(odd){
+    left:0;
+    text-align:right;
+}
+
+.journey-item:nth-child(even){
+    left:50%;
+}
+
+.journey-dot{
+    position:absolute;
+    top:28px;
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    background:var(--gold);
+    border:4px solid #edf0e9;
+    box-shadow:0 0 0 2px var(--gold);
+}
+
+.journey-item:nth-child(odd) .journey-dot{
+    right:-8px;
+}
+
+.journey-item:nth-child(even) .journey-dot{
+    left:-8px;
+}
+
+.journey-card{
+    background:white;
+    padding:22px;
+    border-radius:16px;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+    transition:transform .3s ease, box-shadow .3s ease;
+}
+
+.journey-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 32px rgba(0,0,0,.10);
+}
+
+.journey-card h3{
+    font-family:"Noto Serif Malayalam",serif;
+    color:var(--main);
+    margin-bottom:8px;
+}
+
+.journey-card p{
+    color:#68736d;
+    line-height:1.8;
+}
+
+/* =========================
+   LOCATION
+========================= */
+
+.location{
+    padding:70px 20px;
+    text-align:center;
+    background:#faf9f4;
+}
+
+.location-box{
+    max-width:650px;
+    margin:30px auto;
+    background:white;
+    padding:30px 20px;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.07);
+}
+
+.location-box h3{
+    font-family:"Noto Serif Malayalam",serif;
+}
+
+.location-box p{
+    color:#65716b;
+    line-height:1.9;
+    margin-bottom:20px;
+}
+
+.map-btn,
+.calendar-btn{
+    display:inline-block;
+    text-decoration:none;
+    color:white;
+    background:var(--main);
+    padding:13px 25px;
+    border-radius:30px;
+    margin:5px;
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown{
+    background:var(--main);
+    color:white;
+    padding:70px 20px;
+    text-align:center;
+}
+
+.countdown .section-title{
+    color:white;
+}
+
+.timer{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.time{
+    min-width:90px;
+    padding:18px 10px;
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:12px;
+}
+
+.time span{
+    display:block;
+    font-size:32px;
+    font-weight:bold;
+}
+
+.time small{
+    opacity:.8;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+    padding:70px 20px;
+    text-align:center;
+}
+
+.photos{
+    max-width:950px;
+    margin:35px auto 0;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+/* =========================
+   RSVP
+========================= */
+
+.rsvp{
+    background:#faf9f4;
+    padding:70px 20px;
+    text-align:center;
+}
+
+.rsvp p{
+    color:#65716b;
+    margin:20px auto;
+}
+
+/* =========================
+   CLOSING
+========================= */
+
+.closing{
+    background:
+    linear-gradient(
+        rgba(18,45,34,.88),
+        rgba(18,45,34,.9)
+    ),
+    url("baby.jpg") center/cover no-repeat;
+
+    color:white;
+    text-align:center;
+    padding:90px 20px;
+}
+
+.closing .section-title{
+    color:white;
+}
+
+.closing p{
+    margin-top:15px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#14231d;
+    color:#bfc9c3;
+    text-align:center;
+    padding:20px;
+    font-size:13px;
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-btn{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:500;
+    width:52px;
+    height:52px;
+    border:none;
+    border-radius:50%;
+    background:var(--main);
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+}
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(30px);
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .section-title{
+        font-size:34px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+        max-width:400px;
+    }
+
+    .photos{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .photos img{
+        height:180px;
+    }
+
+    .scratch-photo{
+        height:180px;
+    }
+
+    .scratch-text{
+        font-size:15px;
+    }
+
+    .scratch-photo span{
+        font-size:12px;
+    }
+
+    .time{
+        min-width:72px;
+    }
+
+    .time span{
+        font-size:25px;
+    }
+
+    .journey-timeline::before{
+        left:15px;
+    }
+
+    .journey-item,
+    .journey-item:nth-child(even),
+    .journey-item:nth-child(odd){
+        width:100%;
+        left:0;
+        text-align:left;
+        padding-left:45px;
+        padding-right:0;
+    }
+
+    .journey-item:nth-child(odd) .journey-dot,
+    .journey-item:nth-child(even) .journey-dot{
+        left:7px;
+        right:auto;
+    }
+
+    .journey-card{
+        padding:20px;
+    }
+
+    .bible-verse-box{
+        padding:30px 18px;
+    }
+
+    .bible-verse-box p{
+        font-size:18px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ========================= HERO ========================= -->
+
+<header class="hero">
+
+    <div class="botanical left">🌿</div>
+    <div class="botanical right">🌿</div>
+
+    <div class="hero-content">
+
+        <div class="cross">✝</div>
+
+        <div class="small-title">
+            With God's Blessings
+        </div>
+
+        <h1>
+            Sanctum Baptisma
+        </h1>
+
+        <div class="subtitle">
+            മാമോദീസാ തിരുക്കർമ്മത്തിലേക്ക്
+        </div>
+
+        <div class="baby-name" id="babyName">
+            FROM YOUR INFORMATION
+        </div>
+
+        <div class="hero-date" id="heroDate">
+            FROM YOUR INFORMATION
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ========================= INVITATION ========================= -->
+
+<section class="invitation reveal">
+
+    <h2 class="section-title">
+        Invitation
+    </h2>
+
+    <div class="divider"></div>
+
+    <div class="invite-card" id="scratchCard">
+
+        <img
+            src="invitation.jpg"
+            id="invitationImage"
+            alt="Invitation Card"
+        >
+
+        <canvas id="scratchCanvas"></canvas>
+
+        <div
+            class="scratch-text"
+            id="invitationScratchText"
+        >
+            ✨ SCRATCH HERE ✨
+        </div>
+
+    </div>
+
+    <p style="margin-top:15px;color:#777;">
+        👆 Card scratch ചെയ്യുക
+    </p>
+
+</section>
+
+
+<!-- ========================= IMAGE MODAL ========================= -->
+
+<div class="modal" id="imageModal">
+
+    <span
+        class="close"
+        onclick="closeImage()"
+    >
+        &times;
+    </span>
+
+    <img
+        id="modalImage"
+        src=""
+        alt="Full Image"
+    >
+
+</div>
+
+
+<!-- ========================= INTRO ========================= -->
+
+<section class="intro reveal">
+
+    <h2 class="section-title">
+        സ്നേഹപൂർവ്വം ക്ഷണിക്കുന്നു
+    </h2>
+
+    <div class="divider"></div>
+
+    <p>
+        ദൈവത്തിന്റെ അനുഗ്രഹത്താൽ ഞങ്ങളുടെ പ്രിയപ്പെട്ട കുഞ്ഞിന്റെ
+        മാമോദീസാ തിരുക്കർമ്മം നടത്തപ്പെടുന്നു.
+        ഈ അനുഗ്രഹീതമായ അവസരത്തിൽ കുടുംബസമേതം പങ്കുചേർന്ന്
+        ഞങ്ങളെ അനുഗ്രഹിക്കണമെന്ന് സ്നേഹപൂർവ്വം ക്ഷണിക്കുന്നു.
+    </p>
+
+</section>
+
+
+<!-- ========================= BAPTISM DETAILS ========================= -->
+
+<section class="details reveal">
+
+    <h2 class="section-title">
+        Baptism
+    </h2>
+
+    <div class="divider"></div>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <div class="icon">🗓️</div>
+
+            <h3>
+                തീയതി
+            </h3>
+
+            <p id="baptismDate"></p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">⏰</div>
+
+            <h3>
+                സമയം
+            </h3>
+
+            <p id="baptismTime"></p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">⛪</div>
+
+            <h3>
+                പള്ളി
+            </h3>
+
+            <p id="churchNameCard"></p>
+
+            <p id="churchAddressCard"></p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= BIBLE VERSE ========================= -->
+
+<section class="bible-verse reveal">
+
+    <h2 class="section-title">
+        A Blessing From Above
+    </h2>
+
+    <div class="divider"></div>
+
+    <div class="bible-verse-box">
+
+        <div class="bible-cross">
+            ✝
+        </div>
+
+        <p>
+            “Children are a heritage from the Lord,
+            offspring a reward from Him.”
+        </p>
+
+        <span class="bible-reference">
+            Psalm 127:3
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= JOURNEY ========================= -->
+
+<section class="journey reveal">
+
+    <h2 class="section-title">
+        A Little Journey of Grace
+    </h2>
+
+    <div class="divider"></div>
+
+    <div class="journey-timeline">
+
+        <div class="journey-item">
+
+            <div class="journey-dot"></div>
+
+            <div class="journey-card">
+
+                <h3>
+                    A Precious Gift
+                </h3>
+
+                <p>
+                    ദൈവത്തിന്റെ സ്നേഹത്തിൽ ഞങ്ങളുടെ
+                    കുഞ്ഞ് ഞങ്ങളുടെ ജീവിതത്തിലേക്ക്
+                    ഒരു മനോഹര സമ്മാനമായി എത്തി.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="journey-item">
+
+            <div class="journey-dot"></div>
+
+            <div class="journey-card">
+
+                <h3>
+                    Growing in Love
+                </h3>
+
+                <p>
+                    ഓരോ പുഞ്ചിരിയിലും ഓരോ ചെറിയ
+                    നിമിഷത്തിലും ഞങ്ങളുടെ ജീവിതം
+                    കൂടുതൽ അനുഗ്രഹീതമായി.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="journey-item">
+
+            <div class="journey-dot"></div>
+
+            <div class="journey-card">
+
+                <h3>
+                    A Day of Blessing
+                </h3>
+
+                <p>
+                    വിശ്വാസത്തിന്റെ മനോഹരമായ
+                    യാത്രയിൽ മാമോദീസയിലൂടെ
+                    ഒരു പുതിയ അധ്യായം ആരംഭിക്കുന്നു.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="journey-item">
+
+            <div class="journey-dot"></div>
+
+            <div class="journey-card">
+
+                <h3>
+                    Surrounded by Love
+                </h3>
+
+                <p>
+                    കുടുംബത്തിന്റെയും പ്രിയപ്പെട്ടവരുടെയും
+                    പ്രാർത്ഥനയും സ്നേഹവും കൂടെ
+                    ഈ അനുഗ്രഹീത ദിനം ആഘോഷിക്കുന്നു.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= CHURCH LOCATION ========================= -->
+
+<section class="location reveal">
+
+    <h2 class="section-title">
+        Church Location
+    </h2>
+
+    <div class="divider"></div>
+
+    <div class="location-box">
+
+        <div class="icon">
+            📍
+        </div>
+
+        <h3 id="churchNameLocation"></h3>
+
+        <p id="churchAddressLocation"></p>
+
+        <a
+            id="churchMap"
+            class="map-btn"
+            href="#"
+            target="_blank"
+            rel="noopener"
+        >
+            📍 View Church Location
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= RECEPTION ========================= -->
+
+<section class="reception reveal">
+
+    <h2 class="section-title">
+        Reception
+    </h2>
+
+    <div class="divider"></div>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <div class="icon">
+                🗓️
+            </div>
+
+            <h3>
+                Date
+            </h3>
+
+            <p id="receptionDate"></p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🍽️
+            </div>
+
+            <h3>
+                Reception Time
+            </h3>
+
+            <p id="receptionTime"></p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🏠
+            </div>
+
+            <h3>
+                Venue
+            </h3>
+
+            <p id="receptionVenueCard"></p>
+
+            <p id="receptionAddressCard"></p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= RECEPTION LOCATION ========================= -->
+
+<section class="location reveal">
+
+    <h2 class="section-title">
+        Reception Location
+    </h2>
+
+    <div class="divider"></div>
+
+    <div class="location-box">
+
+        <div class="icon">
+            📍
+        </div>
+
+        <h3 id="receptionVenueLocation"></h3>
+
+        <p id="receptionAddressLocation"></p>
+
+        <a
+            id="receptionMap"
+            class="map-btn"
+            href="#"
+            target="_blank"
+            rel="noopener"
+        >
+            📍 View Reception Location
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= COUNTDOWN ========================= -->
+
+<section class="countdown reveal">
+
+    <h2 class="section-title">
+        Counting the Blessings
+    </h2>
+
+    <div id="timer" class="timer">
+
+        <div class="time">
+            <span id="days">00</span>
+            <small>Days</small>
+        </div>
+
+        <div class="time">
+            <span id="hours">00</span>
+            <small>Hours</small>
+        </div>
+
+        <div class="time">
+            <span id="minutes">00</span>
+            <small>Minutes</small>
+        </div>
+
+        <div class="time">
+            <span id="seconds">00</span>
+            <small>Seconds</small>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= GALLERY ========================= -->
+
+<section class="gallery reveal">
+
+    <h2 class="section-title">
+        Our Little One
+    </h2>
+
+    <div class="divider"></div>
+
+    <div class="photos">
+
+        <div class="scratch-photo">
+            <img src="photo1.jpg" alt="Photo 1">
+            <canvas></canvas>
+            <span>✨ SCRATCH HERE ✨</span>
+        </div>
+
+        <div class="scratch-photo">
+            <img src="photo2.jpg" alt="Photo 2">
+            <canvas></canvas>
+            <span>✨ SCRATCH HERE ✨</span>
+        </div>
+
+        <div class="scratch-photo">
+            <img src="photo3.jpg" alt="Photo 3">
+            <canvas></canvas>
+            <span>✨ SCRATCH HERE ✨</span>
+        </div>
+
+        <div class="scratch-photo">
+            <img src="photo4.jpg" alt="Photo 4">
+            <canvas></canvas>
+            <span>✨ SCRATCH HERE ✨</span>
+        </div>
+
+        <div class="scratch-photo">
+            <img src="photo5.jpg" alt="Photo 5">
+            <canvas></canvas>
+            <span>✨ SCRATCH HERE ✨</span>
+        </div>
+
+        <div class="scratch-photo">
+            <img src="photo6.jpg" alt="Photo 6">
+            <canvas></canvas>
+            <span>✨ SCRATCH HERE ✨</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= RSVP ========================= -->
+
+<section class="rsvp reveal">
+
+    <h2 class="section-title">
+        Join Us
+    </h2>
+
+    <div class="divider"></div>
+
+    <p>
+        നിങ്ങളുടെ സാന്നിധ്യം ഞങ്ങൾക്ക് ഏറെ സന്തോഷം നൽകും.
+    </p>
+
+    <a
+        id="calendar"
+        class="calendar-btn"
+        href="#"
+        download="mammodheesa.ics"
+    >
+        🗓️ Add to Calendar
+    </a>
+
+</section>
+
+
+<!-- ========================= CLOSING ========================= -->
+
+<section class="closing">
+
+    <div class="cross">
+        ✝
+    </div>
+
+    <h2 class="section-title">
+        God Bless You
+    </h2>
+
+    <p>
+        സ്നേഹത്തോടെ
+    </p>
+
+    <br>
+
+    <strong id="familyName">
+        FROM YOUR INFORMATION
+    </strong>
+
+</section>
+
+
+<!-- ========================= FOOTER ========================= -->
+
+<footer>
+    FROM YOUR INFORMATION
+</footer>
+
+
+<!-- ========================= MUSIC ========================= -->
+
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button
+    class="music-btn"
+    id="musicButton"
+    onclick="toggleMusic()"
+>
+    🎵
+</button>
+
+
+<script>
+
+/* =====================================================
+   EVENT DATA
+===================================================== */
+
+/*
+IMPORTANT:
+
+ALL EVENT-SPECIFIC INFORMATION MUST COME
+FROM THE USER'S INFORMATION.
+
+Do NOT invent information.
+
+Do NOT use old/example values.
+
+Only replace the values inside DATA.
+
+Keep the entire existing design, layout, CSS,
+animations, fonts, scratch-card effects, gallery,
+countdown, calendar, music player, modal,
+scroll reveal and mobile responsiveness unchanged.
+*/
+
+const DATA = {
+
+    babyName:
+        "FROM YOUR INFORMATION",
+
+    baptismDate:
+        "FROM YOUR INFORMATION",
+
+    baptismTime:
+        "FROM YOUR INFORMATION",
+
+    baptismDateTime:
+        "FROM YOUR INFORMATION",
+
+    churchName:
+        "FROM YOUR INFORMATION",
+
+    churchAddress:
+        "FROM YOUR INFORMATION",
+
+    churchMap:
+        "FROM YOUR INFORMATION",
+
+    receptionDate:
+        "FROM YOUR INFORMATION",
+
+    receptionTime:
+        "FROM YOUR INFORMATION",
+
+    receptionVenue:
+        "FROM YOUR INFORMATION",
+
+    receptionAddress:
+        "FROM YOUR INFORMATION",
+
+    receptionMap:
+        "FROM YOUR INFORMATION",
+
+    calendarTitle:
+        "FROM YOUR INFORMATION",
+
+    calendarDate:
+        "FROM YOUR INFORMATION",
+
+    calendarStart:
+        "FROM YOUR INFORMATION",
+
+    calendarEnd:
+        "FROM YOUR INFORMATION",
+
+    familyName:
+        "FROM YOUR INFORMATION"
+
+};
+
+
+/* =====================================================
+   PAGE DATA
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        document.getElementById("babyName").textContent =
+            DATA.babyName;
+
+        document.getElementById("heroDate").textContent =
+            DATA.baptismDate;
+
+        document.getElementById("baptismDate").textContent =
+            DATA.baptismDate;
+
+        document.getElementById("baptismTime").textContent =
+            DATA.baptismTime;
+
+        document.getElementById("churchNameCard").textContent =
+            DATA.churchName;
+
+        document.getElementById("churchAddressCard").textContent =
+            DATA.churchAddress;
+
+        document.getElementById("churchNameLocation").textContent =
+            DATA.churchName;
+
+        document.getElementById("churchAddressLocation").textContent =
+            DATA.churchAddress;
+
+        document.getElementById("churchMap").href =
+            DATA.churchMap;
+
+        document.getElementById("receptionDate").textContent =
+            DATA.receptionDate;
+
+        document.getElementById("receptionTime").textContent =
+            DATA.receptionTime;
+
+        document.getElementById("receptionVenueCard").textContent =
+            DATA.receptionVenue;
+
+        document.getElementById("receptionAddressCard").textContent =
+            DATA.receptionAddress;
+
+        document.getElementById("receptionVenueLocation").textContent =
+            DATA.receptionVenue;
+
+        document.getElementById("receptionAddressLocation").textContent =
+            DATA.receptionAddress;
+
+        document.getElementById("receptionMap").href =
+            DATA.receptionMap;
+
+        document.getElementById("familyName").textContent =
+            DATA.familyName;
+
+
+        /* =====================================================
+           COUNTDOWN
+        ===================================================== */
+
+        const eventDate =
+            new Date(DATA.baptismDateTime).getTime();
+
+
+        function countdown(){
+
+            const now =
+                Date.now();
+
+            const distance =
+                eventDate - now;
+
+
+            if(distance <= 0){
+
+                document.getElementById("timer").innerHTML =
+                    "<h3>The blessed day has arrived ✨</h3>";
+
+                return;
+
+            }
+
+
+            const days =
+                Math.floor(
+                    distance /
+                    (1000 * 60 * 60 * 24)
+                );
+
+
+            const hours =
+                Math.floor(
+                    (distance /
+                    (1000 * 60 * 60)) % 24
+                );
+
+
+            const minutes =
+                Math.floor(
+                    (distance /
+                    (1000 * 60)) % 60
+                );
+
+
+            const seconds =
+                Math.floor(
+                    (distance /
+                    1000) % 60
+                );
+
+
+            document.getElementById("days").textContent =
+                String(days).padStart(2,"0");
+
+            document.getElementById("hours").textContent =
+                String(hours).padStart(2,"0");
+
+            document.getElementById("minutes").textContent =
+                String(minutes).padStart(2,"0");
+
+            document.getElementById("seconds").textContent =
+                String(seconds).padStart(2,"0");
+
+        }
+
+
+        countdown();
+
+        setInterval(
+            countdown,
+            1000
+        );
+
+
+        /* =====================================================
+           CALENDAR
+        ===================================================== */
+
+        const calendarContent = `
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Mammodheesa//Event//EN
+BEGIN:VEVENT
+SUMMARY:${DATA.calendarTitle}
+DTSTART:${DATA.calendarDate}T${DATA.calendarStart}
+DTEND:${DATA.calendarDate}T${DATA.calendarEnd}
+LOCATION:${DATA.receptionAddress}
+END:VEVENT
+END:VCALENDAR
+        `;
+
+
+        document.getElementById("calendar").href =
+            "data:text/calendar;charset=utf8," +
+            encodeURIComponent(calendarContent);
+
+
+        setupAllScratch();
+
+        setupScrollReveal();
+
+    }
+);
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+function setupScrollReveal(){
+
+    const elements =
+        document.querySelectorAll(".reveal");
+
+
+    const observer =
+        new IntersectionObserver(
+            function(entries){
+
+                entries.forEach(
+                    function(entry){
+
+                        if(entry.isIntersecting){
+
+                            entry.target.classList.add(
+                                "active"
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold:0.12
+            }
+        );
+
+
+    elements.forEach(
+        function(element){
+
+            observer.observe(element);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   IMAGE MODAL
+===================================================== */
+
+function openImage(image){
+
+    const modal =
+        document.getElementById("imageModal");
+
+    const modalImage =
+        document.getElementById("modalImage");
+
+    modalImage.src =
+        image;
+
+    modal.style.display =
+        "flex";
+
+}
+
+
+function closeImage(){
+
+    document.getElementById(
+        "imageModal"
+    ).style.display =
+        "none";
+
+}
+
+
+document.getElementById(
+    "imageModal"
+).addEventListener(
+    "click",
+    function(e){
+
+        if(e.target === this){
+
+            closeImage();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   SPARKLES
+===================================================== */
+
+const sparkleSymbols = [
+    "✨",
+    "✦",
+    "✧",
+    "⭐",
+    "💫"
+];
+
+
+function createSparkle(
+    container,
+    x,
+    y
+){
+
+    const sparkle =
+        document.createElement("div");
+
+    sparkle.className =
+        "sparkle";
+
+    sparkle.textContent =
+        sparkleSymbols[
+            Math.floor(
+                Math.random() *
+                sparkleSymbols.length
+            )
+        ];
+
+    sparkle.style.left =
+        x + "px";
+
+    sparkle.style.top =
+        y + "px";
+
+    container.appendChild(
+        sparkle
+    );
+
+
+    setTimeout(
+        function(){
+
+            if(sparkle.parentNode){
+
+                sparkle.remove();
+
+            }
+
+        },
+        800
+    );
+
+}
+
+
+/* =====================================================
+   SCRATCH FUNCTION
+===================================================== */
+
+function setupScratch(
+    container,
+    canvas,
+    textElement,
+    radius
+){
+
+    const image =
+        container.querySelector("img");
+
+
+    if(!image || !canvas){
+
+        return;
+
+    }
+
+
+    function initialise(){
+
+        const rect =
+            container.getBoundingClientRect();
+
+
+        if(
+            rect.width <= 0 ||
+            rect.height <= 0
+        ){
+
+            return;
+
+        }
+
+
+        const dpr =
+            Math.min(
+                window.devicePixelRatio || 1,
+                2
+            );
+
+
+        canvas.width =
+            Math.floor(
+                rect.width * dpr
+            );
+
+
+        canvas.height =
+            Math.floor(
+                rect.height * dpr
+            );
+
+
+        canvas.style.width =
+            rect.width + "px";
+
+        canvas.style.height =
+            rect.height + "px";
+
+
+        const ctx =
+            canvas.getContext(
+                "2d",
+                {
+                    willReadFrequently:true
+                }
+            );
+
+
+        if(!ctx){
+
+            console.error(
+                "Canvas context unavailable."
+            );
+
+            return;
+
+        }
+
+
+        ctx.setTransform(
+            dpr,
+            0,
+            0,
+            dpr,
+            0,
+            0
+        );
+
+
+        const gradient =
+            ctx.createLinearGradient(
+                0,
+                0,
+                rect.width,
+                rect.height
+            );
+
+
+        gradient.addColorStop(
+            0,
+            "#756344"
+        );
+
+        gradient.addColorStop(
+            0.5,
+            "#bca46f"
+        );
+
+        gradient.addColorStop(
+            1,
+            "#756344"
+        );
+
+
+        ctx.fillStyle =
+            gradient;
+
+        ctx.fillRect(
+            0,
+            0,
+            rect.width,
+            rect.height
+        );
+
+
+        ctx.fillStyle =
+            "rgba(255,255,255,.95)";
+
+        ctx.textAlign =
+            "center";
+
+        ctx.textBaseline =
+            "middle";
+
+        ctx.font =
+            "bold 17px Arial";
+
+        ctx.fillText(
+            "SCRATCH TO REVEAL",
+            rect.width / 2,
+            rect.height / 2
+        );
+
+
+        let drawing =
+            false;
+
+        let lastSparkle =
+            0;
+
+        let lastProgressCheck =
+            0;
+
+
+        function getPosition(e){
+
+            const box =
+                canvas.getBoundingClientRect();
+
+
+            return {
+
+                x:
+                    e.clientX -
+                    box.left,
+
+                y:
+                    e.clientY -
+                    box.top
+
+            };
+
+        }
+
+
+        function scratch(e){
+
+            if(!drawing){
+
+                return;
+
+            }
+
+
+            if(
+                typeof e.clientX !== "number" ||
+                typeof e.clientY !== "number"
+            ){
+
+                return;
+
+            }
+
+
+            e.preventDefault();
+
+
+            const pos =
+                getPosition(e);
+
+
+            ctx.globalCompositeOperation =
+                "destination-out";
+
+
+            ctx.beginPath();
+
+            ctx.arc(
+                pos.x,
+                pos.y,
+                radius,
+                0,
+                Math.PI * 2
+            );
+
+            ctx.fill();
+
+
+            ctx.globalCompositeOperation =
+                "source-over";
+
+
+            const now =
+                performance.now();
+
+
+            if(
+                now -
+                lastSparkle >
+                100
+            ){
+
+                createSparkle(
+                    container,
+                    pos.x,
+                    pos.y
+                );
+
+                lastSparkle =
+                    now;
+
+            }
+
+
+            if(
+                now -
+                lastProgressCheck >
+                300
+            ){
+
+                lastProgressCheck =
+                    now;
+
+                checkProgress();
+
+            }
+
+        }
+
+
+        function checkProgress(){
+
+            try{
+
+                const data =
+                    ctx.getImageData(
+                        0,
+                        0,
+                        canvas.width,
+                        canvas.height
+                    ).data;
+
+
+                let transparent =
+                    0;
+
+                let total =
+                    0;
+
+
+                for(
+                    let i = 3;
+                    i < data.length;
+                    i += 16
+                ){
+
+                    total++;
+
+
+                    if(
+                        data[i] < 80
+                    ){
+
+                        transparent++;
+
+                    }
+
+                }
+
+
+                const progress =
+                    total > 0
+                    ?
+                    (transparent / total) * 100
+                    :
+                    0;
+
+
+                if(textElement){
+
+                    if(progress >= 60){
+
+                        const opacity =
+                            Math.max(
+                                0,
+                                1 -
+                                (
+                                    (progress - 60) /
+                                    15
+                                )
+                            );
+
+                        textElement.style.opacity =
+                            opacity;
+
+                    }
+
+
+                    if(progress >= 75){
+
+                        textElement.style.display =
+                            "none";
+
+                    }
+
+                }
+
+
+                if(progress >= 75){
+
+                    canvas.style.display =
+                        "none";
+
+                    if(textElement){
+
+                        textElement.style.display =
+                            "none";
+
+                    }
+
+                    container.dataset.scratched =
+                        "true";
+
+                }
+
+
+            }catch(error){
+
+                console.warn(
+                    "Scratch progress check failed:",
+                    error
+                );
+
+            }
+
+        }
+
+
+        canvas.addEventListener(
+            "pointerdown",
+            function(e){
+
+                drawing =
+                    true;
+
+                try{
+
+                    canvas.setPointerCapture(
+                        e.pointerId
+                    );
+
+                }catch(error){}
+
+                scratch(e);
+
+            }
+        );
+
+
+        canvas.addEventListener(
+            "pointermove",
+            function(e){
+
+                if(drawing){
+
+                    scratch(e);
+
+                }
+
+            }
+        );
+
+
+        canvas.addEventListener(
+            "pointerup",
+            function(e){
+
+                drawing =
+                    false;
+
+                try{
+
+                    canvas.releasePointerCapture(
+                        e.pointerId
+                    );
+
+                }catch(error){}
+
+            }
+        );
+
+
+        canvas.addEventListener(
+            "pointercancel",
+            function(){
+
+                drawing =
+                    false;
+
+            }
+        );
+
+
+        image.addEventListener(
+            "click",
+            function(e){
+
+                if(
+                    container.dataset.scratched ===
+                    "true"
+                ){
+
+                    e.stopPropagation();
+
+                    openImage(
+                        image.getAttribute("src")
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    if(
+        image.complete &&
+        image.naturalWidth > 0
+    ){
+
+        initialise();
+
+    }else{
+
+        image.addEventListener(
+            "load",
+            initialise,
+            {
+                once:true
+            }
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   SETUP ALL SCRATCH AREAS
+===================================================== */
+
+function setupAllScratch(){
+
+    const invitation =
+        document.getElementById(
+            "scratchCard"
+        );
+
+
+    if(invitation){
+
+        setupScratch(
+            invitation,
+            document.getElementById(
+                "scratchCanvas"
+            ),
+            document.getElementById(
+                "invitationScratchText"
+            ),
+            35
+        );
+
+    }
+
+
+    const gallery =
+        document.querySelectorAll(
+            ".scratch-photo"
+        );
+
+
+    gallery.forEach(
+        function(photo){
+
+            const canvas =
+                photo.querySelector(
+                    "canvas"
+                );
+
+            const text =
+                photo.querySelector(
+                    "span"
+                );
+
+
+            setupScratch(
+                photo,
+                canvas,
+                text,
+                28
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   MUSIC
+===================================================== */
+
+const music =
+    document.getElementById(
+        "music"
+    );
+
+let playing =
+    false;
+
+
+function toggleMusic(){
+
+    if(!music){
+
+        return;
+
+    }
+
+
+    if(playing){
+
+        music.pause();
+
+        document.getElementById(
+            "musicButton"
+        ).textContent =
+            "🎵";
+
+        playing =
+            false;
+
+    }else{
+
+        music.play()
+        .then(
+            function(){
+
+                document.getElementById(
+                    "musicButton"
+                ).textContent =
+                    "⏸️";
+
+                playing =
+                    true;
+
+            }
+        )
+        .catch(
+            function(error){
+
+                console.log(
+                    "Music could not start:",
+                    error
+                );
+
+            }
+        );
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
